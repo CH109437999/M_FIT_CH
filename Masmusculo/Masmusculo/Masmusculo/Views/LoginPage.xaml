@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Masmusculo.Views.LoginPage"
+             xmlns:translator="clr-namespace:ServoShell.Helpers"
+             NavigationPage.HasNavigationBar="False"
+             BackgroundImageSource="background.png">
+
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="20, 50, 20, 100">
+                <!--Display the logo.png-->
+                <Image Source="splash_logo.png"  HorizontalOptions="FillAndExpand" 
+                   VerticalOptions="Start" Margin="0, 30, 0, 30"/>
+                <!--Display the Email entry-->
+                <Frame CornerRadius="5" Margin="25,10,25,0" HeightRequest="40" Padding="0,0,0,0" IsClippedToBounds="True">
+                    <Entry x:Name="txt_email" 
+                   Placeholder="{translator:Translate EmailTitle}"                   
+                   HorizontalOptions="FillAndExpand"  
+                   VerticalOptions="FillAndExpand"
+                   FontSize="Medium"                   
+                   BackgroundColor="White"
+                   Text="{Binding email}"/>
+                </Frame>
+                <!--Display the password entry-->
+                <Frame CornerRadius="5" Margin="25,10,25,10" HeightRequest="40" Padding="0,0,0,0" IsClippedToBounds="True">
+                    <Entry x:Name="txt_pass" 
+                   FontSize="Medium"
+                   BackgroundColor="White"
+                   VerticalOptions="FillAndExpand"
+                   HorizontalOptions="FillAndExpand"
+                   Placeholder="{translator:Translate PasswordTitle}"
+                   Text="{Binding password}"/>
+                </Frame>
+                <!--Display the Login button-->
+                <Button BackgroundColor="#cece13"
+                    FontSize="Medium"
+                    Margin="25,10,25,0"
+                    Clicked="OnLogin"
+                    Command="{Binding LoginCommand}"
+                    HeightRequest="40"
+                    Text="{translator:Translate EnterButtonTitle}"
+                    Padding="0,5,0,5"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="5"/>
+                <!--Display the Register lable and recoverypassword label-->
+                <Grid Margin="0,0,0,100">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto" />
+                        <ColumnDefinition Width="auto" />
+                    </Grid.ColumnDefinitions>
+                    <Label Grid.Column="1"
+                    HorizontalOptions="Start"
+                    TextColor="#a1ce26"
+                    Margin="30, 0, 10, 5"
+                    BackgroundColor="#343a40">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{translator:Translate RegisterTitle}" TextDecorations="Underline" FontAttributes="Italic">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnRegister"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                    <Label Grid.Column="2"
+                    HorizontalOptions="End"
+                    TextColor="#a1ce26"
+                    Margin="10, 0, 30, 5"
+                    BackgroundColor="#343a40">
+                        <Label.FormattedText>
+                            <FormattedString>
+                                <Span Text="{translator:Translate RecoveryPasswordTitle}" TextDecorations="Underline" FontAttributes="Italic">
+                                    <Span.GestureRecognizers>
+                                        <TapGestureRecognizer Tapped="OnRecoveryPassword"/>
+                                    </Span.GestureRecognizers>
+                                </Span>
+                            </FormattedString>
+                        </Label.FormattedText>
+                    </Label>
+                </Grid>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

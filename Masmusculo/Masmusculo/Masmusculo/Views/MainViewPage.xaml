@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Masmusculo.Views.MainViewPage"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:translator="clr-namespace:ServoShell.Helpers"
+             BackgroundImageSource="background.png">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="End" Margin="20, 0, 20, 10">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                    <ColumnDefinition Width="auto" />
+                </Grid.ColumnDefinitions>
+                <!-- Display the Enter Button-->
+                <Button Grid.Column="1" BackgroundColor="#cece13" HorizontalOptions="Start"
+                    FontSize="Medium" WidthRequest="100"
+                    Clicked="OnEnter"
+                    Command="{Binding EnterCommand}"
+                    HeightRequest="40"
+                    Text="{translator:Translate EnterTitle}"
+                    Padding="0,5,0,5"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="5"/>
+                <!-- Display the Exercises Button-->
+                <Button Grid.Column="2" BackgroundColor="#cece13" HorizontalOptions="Start"
+                    FontSize="Medium" WidthRequest="100"
+                    Clicked="OnExercises"
+                    Command="{Binding ExercisesCommand}"
+                    HeightRequest="40"
+                    Text="{translator:Translate ExercisesTitle}"
+                    Padding="0,5,0,5"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="5"/>
+                <!-- Display the My Account Button-->
+                <Button Grid.Column="3" BackgroundColor="#cece13" HorizontalOptions="StartAndExpand"
+                    FontSize="Medium"
+                    Clicked="OnMyaccount"
+                    Command="{Binding MyaccountCommand}"
+                    HeightRequest="40"
+                    Text="{translator:Translate MyaccountTitle}"
+                    Padding="0,5,0,5"
+                    TextColor="White"
+                    FontAttributes="Bold"
+                    CornerRadius="5"/>
+            </Grid>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
